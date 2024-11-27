@@ -1,3 +1,0 @@
-# Allow requests from your Netlify app
-/api/*
-  Access-Control-Allow-Origin: https://josebrenon-reactrealtimechat.netlify.app

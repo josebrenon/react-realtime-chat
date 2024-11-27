@@ -16,7 +16,7 @@ export default function Join({ setChatVisibility, setSocket }) {
     const username = usernameRef.current.value;
     if (!username.trim()) return;
     const socket = await io.connect(
-      "https://josebrenon-reactrealtimechat.netlify.app/:404"
+      "https://josebrenon-reactrealtimechat.netlify.app:5000"
     );
     socket.emit("set_username", username);
     setSocket(socket);

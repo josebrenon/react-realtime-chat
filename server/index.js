@@ -1,5 +1,6 @@
 const app = require("express")();
 const server = require("http").createServer(app);
+
 const io = require("socket.io")(server, {
   cors: {
     origin: "https://josebrenon-reactrealtimechat.netlify.app/",
@@ -9,7 +10,7 @@ const io = require("socket.io")(server, {
   },
 });
 
-const PORT = 404;
+const PORT = process.env.PORT || 5000;
 
 io.on("connection", (socket) => {
   console.log("usuário conectado", socket.id);
@@ -30,4 +31,4 @@ io.on("connection", (socket) => {
     });
   });
 });
-server.listen(PORT, () => console.log("Server running..."));
+server.listen(PORT, () => console.log("Servidor rodando na porta", PORT));

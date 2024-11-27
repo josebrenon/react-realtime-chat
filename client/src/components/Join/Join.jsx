@@ -10,7 +10,10 @@ export default function Join({ setChatVisibility, setSocket }) {
 
   const handleSubmit = async () => {
     const username = usernameRef.current.value;
-    if (!username.trim()) return;
+    if (!username.trim()) {
+      alert("Digite um nome de usuário para continuar!");
+      return;
+    }
     const socket = await io.connect("http://localhost:3001");
     socket.emit("set_username", username);
     setSocket(socket);

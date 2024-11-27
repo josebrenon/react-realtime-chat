@@ -5,7 +5,7 @@ const io = require("socket.io")(server, {
   cors: {
     origin: "https://josebrenon-reactrealtimechat.netlify.app/",
     methods: ["GET", "POST"],
-    allowedHeaders: ["my-custom-header"],
+    allowedHeaders: ["_headers"],
     credentials: true,
   },
 });

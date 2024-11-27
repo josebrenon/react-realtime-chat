@@ -1,23 +1,16 @@
 const app = require("express")();
 const server = require("http").createServer(app);
-
 const io = require("socket.io")(server, {
-  cors: {
-    origin: "https://josebrenon-reactrealtimechat.netlify.app/",
-    methods: ["GET", "POST"],
-    allowedHeaders: ["_headers"],
-    allowedHeaders: ["my-custom-header"],
-    credentials: true,
-  },
+  cors: { origin: "http://localhost:5173" },
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = 3001;
 
 io.on("connection", (socket) => {
-  console.log("usuário conectado", socket.id);
+  console.log("Usuário conectado!", socket.id);
 
   socket.on("disconnect", (reason) => {
-    console.log("Usuário desconectado", socket.id);
+    console.log("Usuário desconectado!", socket.id);
   });
 
   socket.on("set_username", (username) => {
@@ -32,4 +25,5 @@ io.on("connection", (socket) => {
     });
   });
 });
-server.listen(PORT, () => console.log("Servidor rodando na porta", PORT));
+
+server.listen(PORT, () => console.log("Server running..."));

@@ -4,7 +4,7 @@ const io = require("socket.io")(server, {
   cors: { origin: "https://josebrenon-reactrealtimechat.netlify.app/" },
 });
 
-const PORT = "https://josebrenon-reactrealtimechat.netlify.app/";
+const PORT = 3001;
 
 io.on("connection", (socket) => {
   console.log("usuário conectado", socket.id);
